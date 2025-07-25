@@ -4,7 +4,7 @@ use crate::segment::{Segment, KnowledgeNode};
 pub fn logical_attention(query: &Segment, nodes: &[KnowledgeNode]) -> Vec<f32> {
     nodes.iter().map(|node| {
         // 1. Проверка прямых связей (если query — часть node)
-        if node.data == *query {
+        if segment_to_text(&node.data) == segment_to_text(query) {
             return 1.0;
         }
         // 2. Семантическое сходство (заглушка, обычно cosine_similarity)

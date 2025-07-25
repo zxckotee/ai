@@ -1,11 +1,11 @@
-use burn_tensor::{Tensor as BurnTensor, Distribution, activation::softmax};
+use burn_tensor::{Tensor as BurnTensor, activation::softmax};
 use burn_wgpu::{Wgpu, WgpuDevice};
 
 /// Attention на GPU с помощью Burn
 pub fn gpu_attention(query: &BurnTensor<Wgpu, 2>, keys: &BurnTensor<Wgpu, 2>) -> BurnTensor<Wgpu, 2> {
     // query: [batch, hidden], keys: [seq_len, hidden]
     // Attention: query * keys^T -> softmax
-    let device = WgpuDevice::default();
+    let _device = WgpuDevice::default();
     
     // Клонируем тензоры для операций, которые потребляют владение
     let keys_t = keys.clone().transpose();

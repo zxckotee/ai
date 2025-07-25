@@ -1,6 +1,7 @@
 use std::sync::Arc;
 use lru::LruCache;
 use crate::knowledge_graph::KnowledgeGraph;
+use std::num::NonZeroUsize;
 
 /// Кеш подграфов знаний (по теме)
 pub struct GraphCache {
@@ -11,7 +12,7 @@ pub struct GraphCache {
 impl GraphCache {
     pub fn new(size: usize) -> Self {
         Self {
-            cache: LruCache::new(size),
+            cache: LruCache::new(NonZeroUsize::new(size).unwrap()),
             pending_updates: Vec::new(),
         }
     }

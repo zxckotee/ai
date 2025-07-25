@@ -8,7 +8,7 @@ use bumpalo::Bump;
 const MAX_DEPTH: usize = 100;
 
 /// Рекурсивный enum для вложенных сегментов
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub enum Segment {
     Primitive(String), // Текст, числа
     Composite(Vec<Segment>), // Вложенные сегменты
@@ -16,7 +16,7 @@ pub enum Segment {
 }
 
 /// Узел графа знаний с вложенными сегментами
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct KnowledgeNode {
     pub id: Uuid,
     pub data: Segment, // Может быть вложенным!
@@ -26,7 +26,7 @@ pub struct KnowledgeNode {
 }
 
 /// Тип связи (заглушка)
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct Edge;
 
 /// Ошибка переполнения рекурсии

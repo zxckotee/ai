@@ -33,7 +33,7 @@ impl<'a> ActiveLearning<'a> {
         }
     }
     /// Модерация (заглушка)
-    pub async fn moderate(&self, corr: &Correction) -> CorrectionResult {
+    pub async fn moderate(&self, _corr: &Correction) -> CorrectionResult {
         // TODO: добавить интерфейс модератора
         CorrectionResult::Rejected
     }
