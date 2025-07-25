@@ -1,0 +1,26 @@
+[package]
+name = "metastasa"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+uuid = { version = "1", features = ["v4"] }
+chrono = { version = "0.4", features = ["serde"] }
+lazy_static = "1.4"
+regex = "1.10"
+# whisper-rs = "*" # Для будущей интеграции аудио
+# image = "*"      # Для будущей интеграции CV
+
+tch = { version = "0.19", features = ["download-libtorch"] }
+burn = { git = "https://github.com/tracel-ai/burn", features = ["wgpu"] }
+burn-wgpu = { git = "https://github.com/tracel-ai/burn" }
+burn-tensor = { git = "https://github.com/tracel-ai/burn" }
+petgraph = "0.6"
+sled = "0.34"
+tokio = { version = "1", features = ["full"] }
+reqwest = { version = "0.11", features = ["json", "blocking", "rustls-tls"] }
+actix-web = "4"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+lru = "0.12"
+bumpalo = "3"
